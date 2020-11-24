@@ -11,6 +11,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
+    "commit": "git-cz",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -33,6 +34,31 @@
     ]
   },
   "devDependencies": {
-    "json-server": "0.16.2"
+    "commitizen": "^4.1.2",
+    "git-cz": "^4.7.0",
+    "husky": "^4.2.5",
+    "json-server": "0.16.2",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint --fix",
+      "git add --force"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add --force"
+    ]
   }
 }
