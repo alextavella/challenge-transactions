@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> should be able to render correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiFormControl-root MuiTextField-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+        data-shrink="false"
+      >
+        Nome
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input"
+          data-testid="nome"
+          name="nome"
+          type="text"
+          value=""
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-3"
+          >
+            <span>
+              Nome
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Input /> should be able to render correctly when disabled 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiFormControl-root MuiTextField-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+        data-shrink="false"
+      >
+        Nome
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-formControl"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+          data-testid="nome"
+          disabled=""
+          name="nome"
+          type="text"
+          value=""
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-7"
+          >
+            <span>
+              Nome
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</body>
+`;
