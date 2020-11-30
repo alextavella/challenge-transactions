@@ -1,11 +1,14 @@
 import React from 'react';
 import { FlashProvider } from '../hooks/flash';
+import { TransactionProvider } from '../hooks/transaction';
 import ThemeProvider from './ThemeProvider';
 
 const MainProvider: React.FC = ({ children }) => {
   return (
     <ThemeProvider>
-      <FlashProvider>{children}</FlashProvider>
+      <TransactionProvider>
+        <FlashProvider>{children}</FlashProvider>
+      </TransactionProvider>
     </ThemeProvider>
   );
 };
