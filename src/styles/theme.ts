@@ -1,6 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Lato',
+    body1: {
+      fontWeight: 400,
+    },
+    body2: {
+      fontWeight: 700,
+    },
+  },
   palette: {
     primary: {
       main: '#3F2787',
