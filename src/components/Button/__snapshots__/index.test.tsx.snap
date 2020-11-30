@@ -13,7 +13,11 @@ Object {
         <span
           class="MuiButton-label"
         >
-          Button
+          <span
+            class="MuiTypography-root MuiTypography-button"
+          >
+            Button
+          </span>
         </span>
         <span
           class="MuiTouchRipple-root"
@@ -30,7 +34,11 @@ Object {
       <span
         class="MuiButton-label"
       >
-        Button
+        <span
+          class="MuiTypography-root MuiTypography-button"
+        >
+          Button
+        </span>
       </span>
       <span
         class="MuiTouchRipple-root"
@@ -103,7 +111,11 @@ exports[`<Button /> should be able to render correctly when disabled 1`] = `
       <span
         class="MuiButton-label"
       >
-        Button
+        <span
+          class="MuiTypography-root MuiTypography-button"
+        >
+          Button
+        </span>
       </span>
     </button>
   </div>
@@ -121,7 +133,11 @@ exports[`<Button /> should be able to render correctly when mouse enter 1`] = `
       <span
         class="MuiButton-label"
       >
-        Button
+        <span
+          class="MuiTypography-root MuiTypography-button"
+        >
+          Button
+        </span>
       </span>
       <span
         class="MuiTouchRipple-root"
