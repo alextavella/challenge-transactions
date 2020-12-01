@@ -67,7 +67,7 @@ export const CREDIT_CARD_CVV: MaskRule = {
     },
   },
   transform: (text: string = ''): string => {
-    return text;
+    return text.substr(0, 3);
   },
 };
 

@@ -51,10 +51,7 @@ const validationSchema = Yup.object().shape({
     }),
   credit_card_cvv: Yup.string()
     .required('CVV é obrigatório')
-    .matches(/[0-9]{3}/, {
-      excludeEmptyString: true,
-      message: 'CVV está incorreto',
-    }),
+    .length(3, 'CVV está incorreto'),
   amount: Yup.string()
     .required('Valor é obrigatório')
     .matches(/([0-9]\.?)?[0-9]+,[0-9]{2}/, {
