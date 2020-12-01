@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e3a952cd81570d2cf9879e5d26dbc0d1",
+    "revision": "902f9399550b4789e45269422ef99ffc",
     "url": "/alextavella/challenge-transactions/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alextavella/challenge-transactions/static/js/2.afd76027.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2c37c7caf6d4fee1ae23",
-    "url": "/alextavella/challenge-transactions/static/js/main.26b0274d.chunk.js"
+    "revision": "15c44128e6cdda7d082e",
+    "url": "/alextavella/challenge-transactions/static/js/main.54b99f86.chunk.js"
   },
   {
     "revision": "b28c83e0b9f1f62cd4c4",

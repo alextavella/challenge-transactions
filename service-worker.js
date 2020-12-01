@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alextavella/challenge-transactions/precache-manifest.4d97705dd83681e2d133568eb7c1577f.js"
+  "/alextavella/challenge-transactions/precache-manifest.87c50331a1ca74667de2a82630dca69b.js"
 );
 
 self.addEventListener('message', (event) => {

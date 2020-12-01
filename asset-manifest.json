@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/alextavella/challenge-transactions/static/js/main.26b0274d.chunk.js",
-    "main.js.map": "/alextavella/challenge-transactions/static/js/main.26b0274d.chunk.js.map",
+    "main.js": "/alextavella/challenge-transactions/static/js/main.54b99f86.chunk.js",
+    "main.js.map": "/alextavella/challenge-transactions/static/js/main.54b99f86.chunk.js.map",
     "runtime-main.js": "/alextavella/challenge-transactions/static/js/runtime-main.e9cd9cfb.js",
     "runtime-main.js.map": "/alextavella/challenge-transactions/static/js/runtime-main.e9cd9cfb.js.map",
     "static/js/2.afd76027.chunk.js": "/alextavella/challenge-transactions/static/js/2.afd76027.chunk.js",
     "static/js/2.afd76027.chunk.js.map": "/alextavella/challenge-transactions/static/js/2.afd76027.chunk.js.map",
     "index.html": "/alextavella/challenge-transactions/index.html",
-    "precache-manifest.4d97705dd83681e2d133568eb7c1577f.js": "/alextavella/challenge-transactions/precache-manifest.4d97705dd83681e2d133568eb7c1577f.js",
+    "precache-manifest.87c50331a1ca74667de2a82630dca69b.js": "/alextavella/challenge-transactions/precache-manifest.87c50331a1ca74667de2a82630dca69b.js",
     "service-worker.js": "/alextavella/challenge-transactions/service-worker.js",
     "static/js/2.afd76027.chunk.js.LICENSE.txt": "/alextavella/challenge-transactions/static/js/2.afd76027.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e9cd9cfb.js",
     "static/js/2.afd76027.chunk.js",
-    "static/js/main.26b0274d.chunk.js"
+    "static/js/main.54b99f86.chunk.js"
   ]
 }
