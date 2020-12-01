@@ -14,7 +14,8 @@ const theme = createMuiTheme({
       fontWeight: 700,
     },
     button: {
-      textTransform: 'capitalize',
+      textTransform: 'none',
+      fontWeight: 700,
     },
   },
   palette: {
