@@ -1,4 +1,4 @@
-export const formatDate = (date: Date) =>
+export const formatDate = (date: Date): string =>
   new Intl.DateTimeFormat('pt-BR', {
     day: '2-digit',
     month: '2-digit',
@@ -6,3 +6,5 @@ export const formatDate = (date: Date) =>
     hour: '2-digit',
     minute: '2-digit',
   }).format(date);
+
+export const parseFromISO = (timestamp: string): Date => new Date(timestamp);

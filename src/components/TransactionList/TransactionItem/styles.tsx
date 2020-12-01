@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 
 export const Container = styled.li`
   background: #fff;
@@ -24,7 +24,9 @@ export const Container = styled.li`
 export const NameText = styled(Typography).attrs({
   variant: 'body2',
   component: 'strong',
-})``;
+})`
+  text-transform: uppercase;
+`;
 
 export const StatusText = styled(Typography).attrs({
   variant: 'body1',

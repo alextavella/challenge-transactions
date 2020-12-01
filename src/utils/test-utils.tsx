@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import MainProvider from '../providers/ThemeProvider';
+import MainProvider from '../providers';
 
 const AllTheProviders: React.FC = ({ children }) => {
   return <MainProvider>{children}</MainProvider>;

@@ -1,4 +1,4 @@
-import { formatDate } from './dates';
+import { formatDate, parseFromISO } from './dates';
 
 describe('formatDate', () => {
   it('should to be able to format correctly', () => {
@@ -19,5 +19,18 @@ describe('formatDate', () => {
     expect(result2).toBe('01/01/2020 10:00');
     expect(result3).toBe('01/01/2020 10:30');
     expect(result4).toBe('01/01/2020 10:45');
+  });
+});
+
+describe('parseFromISO', () => {
+  it('should to be able to format correctly', () => {
+    // Arrange
+    const date1 = '2020-11-30T20:13:25.077Z';
+
+    // Act
+    const result1 = parseFromISO(date1);
+
+    // Assert
+    expect(result1).toStrictEqual(new Date(2020, 10, 30, 17, 13, 25, 77));
   });
 });

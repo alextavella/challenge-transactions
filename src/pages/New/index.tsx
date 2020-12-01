@@ -1,5 +1,6 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { AppBar } from '@material-ui/core';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -7,12 +8,14 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import MaskInput, { MaskInputType } from '../../components/MaskInput';
 import Toolbar from '../../components/Toolbar';
+import envConfig from '../../config/env';
 import FlashContainer from '../../containers/FlashContainer';
 import { useFlash } from '../../hooks/flash';
-import { getValidationErrors } from '../../utils/errors';
+import { RegisterTransaction, useTransaction } from '../../hooks/transaction';
+import { unformatCurrency } from '../../utils/numbers';
 import { Container, Content, MainContent, WrapperContent } from './styles';
 
-interface TransactionData {
+export interface TransactionData {
   name: string;
   buyer_document: string;
   credit_card_number: string;
@@ -61,39 +64,65 @@ const validationSchema = Yup.object().shape({
 });
 
 const New: React.FC = () => {
-  const { goBack } = useHistory();
+  const { goBack, push: redirect } = useHistory();
+
+  const { addTransaction } = useTransaction();
   const { addMessage } = useFlash();
 
-  const { register, handleSubmit, errors } = useForm<TransactionData>();
+  const { register, handleSubmit, errors, setValue } = useForm<TransactionData>(
+    {
+      resolver: yupResolver(validationSchema),
+    },
+  );
+
   const onSubmit = useCallback(
     async (data: TransactionData) => {
       try {
-        console.log('submit...', data);
-
-        // formRef.current?.setErrors({});
-
         await validationSchema.validate(data, {
           abortEarly: false,
         });
 
-        console.log('OK!', data);
+        const {
+          name,
+          buyer_document,
+          credit_card_cvv,
+          credit_card_expiration_date,
+          credit_card_number,
+          amount,
+        } = data;
+
+        const register: RegisterTransaction = {
+          name,
+          buyer_document,
+          credit_card_cvv,
+          credit_card_expiration_date,
+          credit_card_number,
+          amount: unformatCurrency(amount),
+        };
+
+        await addTransaction(register);
+
+        redirect('/');
       } catch (error) {
-        console.log('error!', error);
-
-        if (error instanceof Yup.ValidationError) {
-          const customErrors = getValidationErrors(error);
-          console.log('customErrors', customErrors);
-          return;
-        }
-
         addMessage({
           type: 'error',
           title: 'Falha ao registrar nova transação, tente novamente!',
         });
       }
     },
-    [addMessage],
+    [addMessage, addTransaction, redirect],
   );
+
+  useEffect(() => {
+    if (envConfig.isDev) {
+      setValue('name', 'Alex Tavella');
+      setValue('buyer_document', '229.657.248-00');
+      setValue('credit_card_number', '4111 1111 1111 1111');
+      setValue('credit_card_expiration_date', '01/2021');
+      setValue('credit_card_cvv', '321');
+      setValue('amount', 'R$ 1.000,00');
+    }
+  }, [setValue]);
 
   return (
     <Container>
@@ -109,13 +138,7 @@ const New: React.FC = () => {
                 <Input
                   name="name"
                   label="Nome da pessoa compradora"
-                  ref={register({
-                    required: 'Nome é obrigatório',
-                    pattern: {
-                      value: /(.+\s)+(.+)/,
-                      message: 'Nome incompleto',
-                    },
-                  })}
+                  ref={register}
                   error={!!errors?.name}
                   helperText={errors?.name?.message}
                 />
@@ -125,9 +148,6 @@ const New: React.FC = () => {
                   label="CPF"
                   mask={MaskInputType.buyer_document}
                   ref={register}
-                  rules={{
-                    required: 'CPF é obrigatório',
-                  }}
                   error={!!errors?.buyer_document}
                   helperText={errors?.buyer_document?.message}
                 />
@@ -137,9 +157,6 @@ const New: React.FC = () => {
                   label="N° do cartão"
                   mask={MaskInputType.credit_card_number}
                   ref={register}
-                  rules={{
-                    required: 'N° do cartão é obrigatório',
-                  }}
                   error={!!errors?.credit_card_number}
                   helperText={errors?.credit_card_number?.message}
                 />
@@ -150,9 +167,6 @@ const New: React.FC = () => {
                     label="Data de expiração"
                     mask={MaskInputType.credit_card_expiration_date}
                     ref={register}
-                    rules={{
-                      required: 'Data de expiração é obrigatória',
-                    }}
                     error={!!errors?.credit_card_expiration_date}
                     helperText={errors?.credit_card_expiration_date?.message}
                   />
@@ -161,9 +175,6 @@ const New: React.FC = () => {
                     label="CVV"
                     mask={MaskInputType.credit_card_cvv}
                     ref={register}
-                    rules={{
-                      required: 'CVV é obrigatório',
-                    }}
                     error={!!errors?.credit_card_cvv}
                     helperText={errors?.credit_card_cvv?.message}
                   />
@@ -174,9 +185,6 @@ const New: React.FC = () => {
                   label="Valor da transação"
                   mask={MaskInputType.currency}
                   ref={register}
-                  rules={{
-                    required: 'Valor da transação é obrigatório',
-                  }}
                   error={!!errors?.amount}
                   helperText={errors?.amount?.message}
                 />
