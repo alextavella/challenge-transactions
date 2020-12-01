@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransactionSummary /> should be able to render correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiContainer-root sc-bdfBwQ eKkLOU MuiContainer-maxWidthSm"
+    >
+      <div>
+        <p
+          class="MuiTypography-root sc-gsTCUz MuiTypography-body2"
+        >
+          Número de transações
+        </p>
+        <strong
+          class="MuiTypography-root sc-dlfnbm MuiTypography-subtitle2 MuiTypography-colorSecondary"
+          data-testid="transaction_header_quantity"
+        >
+          123
+        </strong>
+      </div>
+      <div>
+        <p
+          class="MuiTypography-root sc-gsTCUz MuiTypography-body2"
+        >
+          Valor total
+        </p>
+        <strong
+          class="MuiTypography-root sc-dlfnbm MuiTypography-subtitle2 MuiTypography-colorSecondary"
+          data-testid="transaction_header_total"
+        >
+          R$ 456,00
+        </strong>
+      </div>
+    </div>
+  </div>
+</body>
+`;

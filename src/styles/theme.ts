@@ -9,6 +9,13 @@ const theme = createMuiTheme({
     body2: {
       fontWeight: 700,
     },
+    subtitle2: {
+      fontSize: 20,
+      fontWeight: 700,
+    },
+    button: {
+      textTransform: 'capitalize',
+    },
   },
   palette: {
     primary: {
@@ -34,6 +41,8 @@ const theme = createMuiTheme({
         textTransform: 'capitalize',
       },
       containedPrimary: {
+        backgroundColor: '#3F2787',
+        color: '#FFF',
         '&:hover': {
           backgroundColor: '#3F2787',
           color: '#FFF',
