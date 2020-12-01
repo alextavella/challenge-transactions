@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 import TransactionList, {
   TransactionItem,
 } from '../../components/TransactionList';
+import TransactionSummary from '../../components/TransactionSummary';
 import { useTransaction } from '../../hooks/transaction';
-import { Content, RegisterButton } from './styles';
+import { Content, Header, RegisterButton } from './styles';
 
 const Home: React.FC = () => {
   const { push: redirect } = useHistory();
@@ -21,9 +22,22 @@ const Home: React.FC = () => {
     }));
   }, [getTransactions]);
 
+  const quantity = useMemo<number>(() => transactions.length, [transactions]);
+
+  const total = useMemo<number>(
+    () =>
+      transactions.reduce((acc: number, transaction: TransactionItem) => {
+        acc += transaction.amount;
+        return acc;
+      }, 0),
+    [transactions],
+  );
+
   return (
     <>
-      <header></header>
+      <Header>
+        <TransactionSummary quantity={quantity} total={total} />
+      </Header>
       <Content>
         <TransactionList transactions={transactions} />
         <RegisterButton
@@ -31,7 +45,7 @@ const Home: React.FC = () => {
           fullWidth
           onClick={() => redirect('/new')}
         >
-          Criar transição
+          Criar transação
         </RegisterButton>
       </Content>
     </>
