@@ -33,6 +33,8 @@ interface TransactionDb {
 export type RegisterTransaction = Omit<Transaction, 'id' | 'created_at'>;
 
 interface TransactionContextData {
+  loading: boolean;
+  error: string;
   getTransactions(): Transaction[];
   addTransaction(data: RegisterTransaction): Promise<Transaction>;
 }
@@ -42,38 +44,49 @@ const TransactionContext = createContext<TransactionContextData>(
 );
 
 const TransactionProvider: React.FC = ({ children }) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    api.get(`/transactions`).then(response => {
-      const data = response.data as TransactionDb[];
+    setLoading(true);
 
-      const result = data.map(item => {
-        const {
-          id,
-          credit_card_holder_name,
-          buyer_document,
-          credit_card_number,
-          credit_card_cvv,
-          credit_card_expiration_date,
-          date,
-          amount,
-        } = item;
+    api
+      .get(`/transactions`)
+      .then(response => {
+        const data = response.data as TransactionDb[];
 
-        return {
-          id,
-          name: credit_card_holder_name,
-          buyer_document,
-          credit_card_number,
-          credit_card_cvv,
-          credit_card_expiration_date,
-          amount,
-          created_at: parseFromISO(date),
-        };
-      });
+        const result = data.map(item => {
+          const {
+            id,
+            credit_card_holder_name,
+            buyer_document,
+            credit_card_number,
+            credit_card_cvv,
+            credit_card_expiration_date,
+            date,
+            amount,
+          } = item;
 
-      setTransactions(result);
-    });
+          return {
+            id,
+            name: credit_card_holder_name,
+            buyer_document,
+            credit_card_number,
+            credit_card_cvv,
+            credit_card_expiration_date,
+            amount,
+            created_at: parseFromISO(date),
+          };
+        });
+
+        setTransactions(result);
+      })
+      .catch(() => {
+        setError('Falha ao carregar as transações, verifique sua conexão');
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const getTransactions = useCallback(() => transactions, [transactions]);
@@ -119,6 +132,8 @@ const TransactionProvider: React.FC = ({ children }) => {
   }, []);
 
   const transactionData = {
+    loading,
+    error,
     getTransactions,
     addTransaction,
   };
