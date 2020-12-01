@@ -2,6 +2,7 @@
   "name": "pagarme-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/alextavella/challenge-transactions",
   "dependencies": {
     "@hookform/resolvers": "^1.1.1",
     "@material-ui/core": "^4.11.1",
@@ -29,7 +30,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server ./server/db.json --middlewares ./server/status-middleware.js --port 3333"
+    "server": "json-server ./server/db.json --middlewares ./server/status-middleware.js --port 3333",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,6 +58,7 @@
     "@types/yup": "^0.29.9",
     "commitizen": "^4.1.2",
     "cross-env": "^7.0.2",
+    "gh-pages": "^3.1.0",
     "git-cz": "^4.7.0",
     "husky": "^4.2.5",
     "intl": "^1.2.5",
