@@ -39,5 +39,6 @@ export const Content = styled(Container).attrs({
 `;
 
 export const TitleText = styled(Typography).attrs({
-  variant: 'h6',
+  variant: 'body1',
+  component: 'span',
 })``;
