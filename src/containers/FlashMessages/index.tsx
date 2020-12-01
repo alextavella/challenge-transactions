@@ -13,7 +13,7 @@ const FlashMessages: React.FC = () => {
     leave: { top: '-80px', opacity: 0 },
   });
 
-  if (messages && messages.length > 0) {
+  if (transitions.length === 0) {
     return <></>;
   }
 
