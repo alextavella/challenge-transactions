@@ -1,13 +1,13 @@
 import SuccessIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
 import React from 'react';
-import { Content, FlashItem } from './styles';
+import { Content, FlashItem, TitleText } from './styles';
 
 export interface FlashMessageProps {
   type: 'error' | 'success';
   title: string;
   onClick(): void;
-  style: Object;
+  style?: Object;
 }
 
 const icons = {
@@ -27,7 +27,7 @@ const FlashMessage: React.FC<FlashMessageProps> = ({
     <FlashItem type={type} onClick={click} {...rest}>
       <Content>
         <Icon />
-        {title}
+        <TitleText>{title}</TitleText>
       </Content>
     </FlashItem>
   );

@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
 
@@ -37,3 +37,7 @@ export const Content = styled(Container).attrs({
     margin-right: 8px;
   }
 `;
+
+export const TitleText = styled(Typography).attrs({
+  variant: 'h6',
+})``;

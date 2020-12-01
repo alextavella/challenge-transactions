@@ -12,8 +12,9 @@ export const Container = styled.div`
 `;
 
 export const WrapperContent = styled.div`
-  height: 100%;
   position: relative;
+  height: 100%;
+  width: 100%;
 `;
 
 export const Content = styled(MaterialContainer).attrs({

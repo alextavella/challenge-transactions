@@ -9,7 +9,7 @@ import Input from '../../components/Input';
 import MaskInput, { MaskInputType } from '../../components/MaskInput';
 import Toolbar from '../../components/Toolbar';
 import envConfig from '../../config/env';
-import FlashContainer from '../../containers/FlashContainer';
+import FlashMessages from '../../containers/FlashMessages';
 import { useFlash } from '../../hooks/flash';
 import { RegisterTransaction, useTransaction } from '../../hooks/transaction';
 import { unformatCurrency } from '../../utils/numbers';
@@ -130,7 +130,7 @@ const New: React.FC = () => {
         <Toolbar title="Nova transação" onBack={goBack} />
       </AppBar>
       <WrapperContent>
-        <FlashContainer />
+        <FlashMessages />
         <Content>
           <MainContent>
             <form onSubmit={handleSubmit(onSubmit)}>
