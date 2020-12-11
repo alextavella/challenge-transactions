@@ -16,7 +16,7 @@ import {
 } from './styles';
 
 const Home: React.FC = () => {
-  const { push: redirect } = useHistory();
+  const history = useHistory();
 
   const { error, loading, getTransactions } = useTransaction();
   const { addMessage } = useFlash();
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             <Button
               startIcon={<AddIcon />}
               fullWidth
-              onClick={() => redirect('/new')}
+              onClick={() => history.push('/criar-transacao')}
             >
               Criar transação
             </Button>
