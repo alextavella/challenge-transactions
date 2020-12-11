@@ -56,6 +56,7 @@ const theme = createMuiTheme({
     },
     MuiInputBase: {
       root: {
+        background: '#FFF',
         height: 48,
         padding: 0,
         width: '100%',
