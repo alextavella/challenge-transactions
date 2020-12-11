@@ -20,6 +20,7 @@ export const WrapperContent = styled.div`
 export const Content = styled(MaterialContainer).attrs({
   maxWidth: 'sm',
 })`
+  background: white;
   height: 100%;
 `;
 
